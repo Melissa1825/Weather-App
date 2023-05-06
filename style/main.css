@@ -1,3 +1,18 @@
-h1 {
-    color: red;
+
+
+ul {
+    list-style: none;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+main {
+    text-align: center;
+}
+
+section {
+    text-align: center;
 }
