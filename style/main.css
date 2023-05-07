@@ -1,18 +1,31 @@
+.weatherApp {
+    max-width: 800px;
+    margin: 30px auto;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid black;
+    font-family: 'Cormorant Garamond', serif;
+}
 
+
+main {
+    padding-bottom: 40px;
+}
+
+.details {
+    padding-bottom: 10px;
+}
 
 ul {
     list-style: none;
 }
 
-img {
+.forecast li {
+    padding: 10px 0;
+    background: lightblue;
+}
+
+li img {
     display: block;
     margin: 0 auto;
-}
-
-main {
-    text-align: center;
-}
-
-section {
-    text-align: center;
 }
