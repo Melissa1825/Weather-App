@@ -1,5 +1,5 @@
 let apiKey = "a0776b8bb0b1556bee1e5658c3acf0c4"
-let city = 'Toronto'
+let city = 'london'
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
 
 axios.get(apiUrl).then(displayTemp)
@@ -13,6 +13,8 @@ function displayTemp(response) {
     let wind = document.querySelector('#wind').innerHTML = response.data.wind.speed;
     let humid = document.querySelector('#humid').innerHTML = response.data.main.humidity;
     let date = document.querySelector('#currentDate').innerHTML = formatDate(response.data.dt * 1000);
+    //*******setup icon for brokend img!!!********
+    let icon = document.querySelector('#icon').setAttribute("src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
 function formatDate(timestamp) {
