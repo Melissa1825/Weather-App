@@ -34,11 +34,11 @@ li img {
 
 
 /* Slide Ball */
-.slider {
-    display: flex;
-    align-items: flex-end;
-    justify-content: end;
-}
+/*.slider {
+/*    display: flex;
+/*    align-items: flex-end;
+/*    justify-content: end;
+/*}*/
 
 .toggle {
     visibility: hidden;

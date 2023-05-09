@@ -1,9 +1,4 @@
-let apiKey = "a0776b8bb0b1556bee1e5658c3acf0c4"
-let city = 'london'
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
-
-axios.get(apiUrl).then(displayTemp)
-
+//Temp display function
 function displayTemp(response) {
     console.log(response.data);
     let city = document.querySelector('#cityName').innerHTML = response.data.name;
@@ -17,6 +12,8 @@ function displayTemp(response) {
     let icon = document.querySelector('#icon').setAttribute("src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
+
+//Date formatting
 function formatDate(timestamp) {
     let date = new Date(timestamp);
 
@@ -37,3 +34,25 @@ function formatDate(timestamp) {
     return `${day}, ${month} ${hours}:${min}`
 }
 
+
+//Default city on load
+function search(city) {
+    let apiKey = "a0776b8bb0b1556bee1e5658c3acf0c4"
+    //let city = 'london'
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
+
+    axios.get(apiUrl).then(displayTemp)
+}
+
+search('Toronto')
+
+
+//Search Engine
+let form = document.querySelector('#searchForm').addEventListener('submit', handleSubmit);
+
+function handleSubmit(event) {
+    event.preventDefault();
+    let citySearch = document.querySelector('#cityInput').value
+    search(citySearch)
+    console.log(citySearch)
+}

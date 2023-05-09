@@ -21,12 +21,26 @@
 
         <div class="weatherApp">
 
-            <div class="slider">
-                <input type="checkbox" id="units" class="toggle">
-                <label for="units" class="label">
-                    <div class="ball">
+            <div class="row">
+                <div class="col-5">
+                    <form id="searchForm"> 
+                        <input type="search" placeholder="Enter a city" id="cityInput">
+                        <input type="submit" value="search">
+                    </form>
+                </div>
+
+                <div class="col-5">
+                </div>
+
+                <div class="col-1">
+                    <div class="slider">
+                        <input type="checkbox" id="units" class="toggle">
+                        <label for="units" class="label">
+                            <div class="ball">
                     </div>
+                </div>
             </div>
+        
 
             <main>
                 <h6 id="currentDate">Date</h6>
