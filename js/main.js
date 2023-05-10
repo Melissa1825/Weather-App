@@ -1,6 +1,6 @@
 //Temp display function
 function displayTemp(response) {
-    console.log(response.data);
+    //console.log(response.data);
     let city = document.querySelector('#cityName').innerHTML = response.data.name;
     let temp = document.querySelector('#currentTemp').innerHTML = Math.round(response.data.main.temp);
     let desc = document.querySelector('#description').innerHTML = response.data.weather[0].main;
@@ -12,10 +12,18 @@ function displayTemp(response) {
     let icon = document.querySelector('#icon').setAttribute("src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
-
+//******WHEN MINUTES END IN 0 TIME NOT FORMATTING PROPERLY******* */
 //Date formatting
 function formatDate(timestamp) {
     let date = new Date(timestamp);
+
+    let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    let day = days[date.getDay()];
+
+    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    let month = months[date.getMonth()]
+
+    let dayNum = date.getDate()
 
     let hours = date.getHours();
     if (hours < 10) {
@@ -26,12 +34,7 @@ function formatDate(timestamp) {
         minutes = `0${min}`;
     }
 
-    let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    let day = days[date.getDay()];
-
-    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    let month = months[date.getMonth()]
-    return `${day}, ${month} ${hours}:${min}`
+    return `${day}, ${month} ${dayNum} ${hours}:${min}`
 }
 
 
@@ -54,5 +57,5 @@ function handleSubmit(event) {
     event.preventDefault();
     let citySearch = document.querySelector('#cityInput').value
     search(citySearch)
-    console.log(citySearch)
+    //console.log(citySearch)
 }

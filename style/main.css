@@ -10,6 +10,7 @@
 
 main {
     padding-bottom: 40px;
+    padding-top: 40px;
 }
 
 .details {
@@ -40,62 +41,63 @@ li img {
 /*    justify-content: end;
 /*}*/
 
-.toggle {
-    visibility: hidden;
-}
-
-.label {
-    background-color: lightblue;
-    width: 80px;
-    height: 40px;
-    border-radius: 50px;
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-}
-
-.toggle:checked + .label {
-    background-color: lightcoral;
-}
-
-.ball {
-    background-color: white;
-    width: 37px;
-    height: 37px;
-    border-radius: 50px;
-    position: absolute;
-    top: 1.4px;
-    left: 1px;
-    animation: slideOff 0.3s linear forwards;
-}
-
-
- .toggle:checked + .label .ball {
-    animation: slideOn 0.3s linear forwards;
- }
-
-@keyframes slideOn {
-    0% {
-        transform: translate(0) scale(1);
-    }
-
-50% {
-    transform: translate(20px) scale(1.2px);
-}
-100% { 
-    transform: translate(40px) scale(1);
-}
-}
-
-@keyframes slideOff {
-    0% {
-        transform: translate(40px) scale(1);
-    }
-
-50% {
-    transform: translate(20px) scale(1.2px);
-}
-100% { 
-    transform: translate(0px) scale(1);
-}
-}
+/*.toggle {
+/*    visibility: hidden;
+/*}
+/*
+/*.label {
+/*    background-color: lightblue;
+/*    width: 80px;
+/*    height: 40px;
+/*    border-radius: 50px;
+/*    cursor: pointer;
+/*    display: inline-block;
+/*    position: relative;
+/*}
+/*
+/*.toggle:checked + .label {
+/*    background-color: lightcoral;
+/*}
+/*
+/*.ball {
+/*    background-color: white;
+/*    width: 37px;
+/*    height: 37px;
+/*    border-radius: 50px;
+/*    position: absolute;
+/*    top: 1.4px;
+/*    left: 1px;
+/*    animation: slideOff 0.3s linear forwards;
+/*}
+/*
+/*
+/* .toggle:checked + .label .ball {
+/*    animation: slideOn 0.3s linear forwards;
+/* }
+/*
+/*@keyframes slideOn {
+/*    0% {
+/*        transform: translate(0) scale(1);
+/*    }
+/*
+/*50% {
+/*    transform: translate(20px) scale(1.2px);
+/*}
+/*100% { 
+/*    transform: translate(40px) scale(1);
+/*}
+/*}
+/*
+/*@keyframes slideOff {
+/*    0% {
+/*        transform: translate(40px) scale(1);
+/*    }
+/*
+/*50% {
+/*    transform: translate(20px) scale(1.2px);
+/*}
+/*100% { 
+/*    transform: translate(0px) scale(1);
+/*}
+/*}
+*/
