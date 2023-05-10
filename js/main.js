@@ -10,6 +10,8 @@ function displayTemp(response) {
     let date = document.querySelector('#currentDate').innerHTML = formatDate(response.data.dt * 1000);
     //*******setup icon for brokend img!!!********
     let icon = document.querySelector('#icon').setAttribute("src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
+    celTemp = response.data.main.temp;
 }
 
 //******WHEN MINUTES END IN 0 TIME NOT FORMATTING PROPERLY******* */
@@ -51,7 +53,7 @@ search('Toronto')
 
 
 //Search Engine
-let form = document.querySelector('#searchForm').addEventListener('submit', handleSubmit);
+document.querySelector('#searchForm').addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
     event.preventDefault();
@@ -59,3 +61,24 @@ function handleSubmit(event) {
     search(citySearch)
     //console.log(citySearch)
 }
+
+//Unit Conversion Cel to Far
+//Cel to Far
+document.querySelector('#far').addEventListener('click', convertToFar)
+
+function convertToFar(event) {
+    event.preventDefault();
+    let farTemp = (celTemp * 9) / 5 + 32;
+    document.querySelector('#currentTemp').innerHTML = Math.round(farTemp);
+}
+
+let celTemp = null;
+
+//Far to Cel
+let celLink = document.querySelector('#cel').addEventListener('click', convertToCel);
+
+function convertToCel(event) {
+    event.preventDefault();
+    document.querySelector('#currentTemp').innerHTML = Math.round(celTemp);
+}
+
