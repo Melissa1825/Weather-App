@@ -1,103 +1,44 @@
-.weatherApp {
-    max-width: 800px;
-    margin: 30px auto;
+.container {
+    margin: 40px auto;
     text-align: center;
-    padding: 20px;
     border: 1px solid black;
-    /*font-family: 'Cormorant Garamond', serif;*/
+    border-radius: 30px;
+    padding: 30px;
 }
-
 
 main {
-    padding-bottom: 40px;
-    padding-top: 40px;
-}
-
-.details {
-    padding-bottom: 10px;
+    padding-top: 30px;
 }
 
 ul {
     list-style: none;
 }
 
-.forecast li {
-    padding: 10px 0;
-    background: lightblue;
-}
-
-li img {
+ul img {
     display: block;
-    margin: 0 auto;
+}
+
+.details {
+    padding: 30px 0;
+}
+
+p {
+    margin: 0;
+}
+
+.fa-solid {
+    display: block;
+}
+
+h3 {
+    text-transform: capitalize;
 }
 
 
+input {
+    border-radius: 10px;
+}
 
-
-/* Slide Ball */
-/*.slider {
-/*    display: flex;
-/*    align-items: flex-end;
-/*    justify-content: end;
-/*}*/
-
-/*.toggle {
-/*    visibility: hidden;
-/*}
-/*
-/*.label {
-/*    background-color: lightblue;
-/*    width: 80px;
-/*    height: 40px;
-/*    border-radius: 50px;
-/*    cursor: pointer;
-/*    display: inline-block;
-/*    position: relative;
-/*}
-/*
-/*.toggle:checked + .label {
-/*    background-color: lightcoral;
-/*}
-/*
-/*.ball {
-/*    background-color: white;
-/*    width: 37px;
-/*    height: 37px;
-/*    border-radius: 50px;
-/*    position: absolute;
-/*    top: 1.4px;
-/*    left: 1px;
-/*    animation: slideOff 0.3s linear forwards;
-/*}
-/*
-/*
-/* .toggle:checked + .label .ball {
-/*    animation: slideOn 0.3s linear forwards;
-/* }
-/*
-/*@keyframes slideOn {
-/*    0% {
-/*        transform: translate(0) scale(1);
-/*    }
-/*
-/*50% {
-/*    transform: translate(20px) scale(1.2px);
-/*}
-/*100% { 
-/*    transform: translate(40px) scale(1);
-/*}
-/*}
-/*
-/*@keyframes slideOff {
-/*    0% {
-/*        transform: translate(40px) scale(1);
-/*    }
-/*
-/*50% {
-/*    transform: translate(20px) scale(1.2px);
-/*}
-/*100% { 
-/*    transform: translate(0px) scale(1);
-/*}
-/*}
-*/
+button {
+    border-radius: 10px;
+}
