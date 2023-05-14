@@ -42,3 +42,13 @@ input {
 button {
     border-radius: 10px;
 }
+
+a {
+    text-decoration: none;
+    color: #544E88;
+    
+}
+
+.active {
+    color: #90D3F8;
+}

@@ -1,3 +1,4 @@
+//api key, api url & axios 
 function search(city) {
     let apiKey = '9acca644b3a6c9504b178f06o3c4t156'
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`
@@ -5,9 +6,11 @@ function search(city) {
     axios.get(apiUrl).then(showTemp)
 }
 
+//default city 
 search ('Toronto')
 
 
+//city search function
 document.querySelector('#citySearch').addEventListener('submit', handleSearch)
 
 function handleSearch(event) {
@@ -16,14 +19,12 @@ function handleSearch(event) {
     search(cityName.value)
 }
 
-
+//temp display
 function showTemp(response) {
 console.log(response)
 document.querySelector('#currentCity').innerHTML = response.data.city;
-
 celTemp = response.data.temperature.current;
 document.querySelector('#currentTemp').innerHTML = Math.round(celTemp);
-
 document.querySelector('#description').innerHTML = response.data.condition.description;
 document.querySelector('#feelsLike').innerHTML = Math.round(response.data.temperature.feels_like);
 document.querySelector('#windSpeed').innerHTML = Math.round(response.data.wind.speed);
@@ -35,7 +36,7 @@ document.querySelector('#date').innerHTML = formatDate(response.data.time * 1000
 
 }
 
-
+//date
 function formatDate(timestamp){
     let date = new Date(timestamp);
 
@@ -47,7 +48,7 @@ function formatDate(timestamp){
 
     let day = date.getDate();
 
-    //time not right for different time zones
+    //time not right for different time zones??
     let hours = date.getHours()
     if (hours < 10) {
         hours = `0${hours}`
@@ -63,6 +64,8 @@ function formatDate(timestamp){
 
 let celTemp = null;
 
+
+//celcius farenheight conversion
 document.querySelector('#far').addEventListener('click', convertToFar);
 
 function convertToFar(event) {
@@ -70,6 +73,8 @@ function convertToFar(event) {
     let temp = document.querySelector('#currentTemp');
     let farTemp = (celTemp * 9/5) + 32;
     temp.innerHTML = Math.round(farTemp);
+    celLink.classList.remove('active');
+    farLink.classList.add('active');   
 }
 
 document.querySelector('#cel').addEventListener('click', convertToCel);
@@ -78,6 +83,15 @@ function convertToCel(event) {
     event.preventDefault();
     let temp = document.querySelector('#currentTemp');
     temp.innerHTML = Math.round(celTemp)
+    celLink.classList.add('active');
+    farLink.classList.remove('active');
 }
+
+//celcius farenheight toggle
+let farLink = document.querySelector('#far');
+farLink.addEventListener('click', convertToFar);
+
+let celLink = document.querySelector('#cel');
+celLink.addEventListener('click', convertToCel)
 
 
