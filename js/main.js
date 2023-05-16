@@ -33,6 +33,8 @@ document.querySelector('#icon').setAttribute('src', `http://shecodes-assets.s3.a
 document.querySelector('#icon').setAttribute('alt', response.data.condition.description);
 document.querySelector('#date').innerHTML = formatDate(response.data.time * 1000)
 
+//call for daily forecast
+dailyForecast(response.data.coordinates);
 
 }
 
@@ -40,7 +42,7 @@ document.querySelector('#date').innerHTML = formatDate(response.data.time * 1000
 function formatDate(timestamp){
     let date = new Date(timestamp);
 
-    let days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     let weekday = days[date.getDay()];
 
     let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -95,27 +97,46 @@ let celLink = document.querySelector('#cel');
 celLink.addEventListener('click', convertToCel)
 
 
-//forecast loop
-function displayForecast() {
+//forecast loop & HTML integration
+function displayForecast(response) { 
+    console.log(response.data)
+    let forecast = response.data.daily;
+
     let forecastElement = document.querySelector('#dailyForecast');
 
     let forecastHTML = `<div class="row">`;
     
-    let days = ["Mon", "Tue", "Wed", "Thu"];
-    days.forEach(function(day) {
+    forecast.forEach(function(forecastDay, index) {
+        if (index < 7 && index > 0)  {
         forecastHTML = forecastHTML + 
         `
                 <div class="col-2">
-                        <p>${day}</p>
-                        <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" alt="dailyIcon">
-                        <div>10 / 15</div>
+                        <p>${formatDailyDate(forecastDay.time)}</p>
+                        <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}" alt="dailyIcon">
+                        <div>${Math.round(forecastDay.temperature.maximum)}° / ${Math.round(forecastDay.temperature.minimum)}°</div>
                 </div>  
         `;
+    }
     })
     
     forecastHTML = forecastHTML + `</div>`;
     forecastElement.innerHTML = forecastHTML
 }
 
-displayForecast();
+function formatDailyDate(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
 
+    let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+
+    return days[day];
+}
+
+
+//daily forecast api
+function dailyForecast(coordinates) {
+    //console.log(coordinates);
+    let apiKey = '9acca644b3a6c9504b178f06o3c4t156';
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}`;
+    axios.get(apiUrl).then(displayForecast);
+}
