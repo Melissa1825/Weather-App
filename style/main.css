@@ -10,12 +10,8 @@ main {
     padding-top: 30px;
 }
 
-ul {
+li {
     list-style: none;
-}
-
-ul img {
-    display: block;
 }
 
 .details {
@@ -67,4 +63,13 @@ a {
 
 .outerContainer {
     text-align: center;
+}
+
+.forecast {
+    text-align: center;
+}
+
+.forecast img {
+    width: 50px;
+    margin: 0 auto;
 }

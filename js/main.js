@@ -95,3 +95,27 @@ let celLink = document.querySelector('#cel');
 celLink.addEventListener('click', convertToCel)
 
 
+//forecast loop
+function displayForecast() {
+    let forecastElement = document.querySelector('#dailyForecast');
+
+    let forecastHTML = `<div class="row">`;
+    
+    let days = ["Mon", "Tue", "Wed", "Thu"];
+    days.forEach(function(day) {
+        forecastHTML = forecastHTML + 
+        `
+                <div class="col-2">
+                        <p>${day}</p>
+                        <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" alt="dailyIcon">
+                        <div>10 / 15</div>
+                </div>  
+        `;
+    })
+    
+    forecastHTML = forecastHTML + `</div>`;
+    forecastElement.innerHTML = forecastHTML
+}
+
+displayForecast();
+
