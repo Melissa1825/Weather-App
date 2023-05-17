@@ -112,7 +112,7 @@ function displayForecast(response) {
         `
                 <div class="col-2">
                         <p>${formatDailyDate(forecastDay.time)}</p>
-                        <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}" alt="dailyIcon">
+                        <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png" alt="dailyIcon">
                         <div>${Math.round(forecastDay.temperature.maximum)}° / ${Math.round(forecastDay.temperature.minimum)}°</div>
                 </div>  
         `;
