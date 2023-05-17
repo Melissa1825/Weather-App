@@ -64,38 +64,6 @@ function formatDate(timestamp){
     return `${weekday}, ${month} ${day} ${hours}:${min}`
 }
 
-let celTemp = null;
-
-
-//celcius farenheight conversion
-document.querySelector('#far').addEventListener('click', convertToFar);
-
-function convertToFar(event) {
-    event.preventDefault();
-    let temp = document.querySelector('#currentTemp');
-    let farTemp = (celTemp * 9/5) + 32;
-    temp.innerHTML = Math.round(farTemp);
-    celLink.classList.remove('active');
-    farLink.classList.add('active');   
-}
-
-document.querySelector('#cel').addEventListener('click', convertToCel);
-
-function convertToCel(event) {
-    event.preventDefault();
-    let temp = document.querySelector('#currentTemp');
-    temp.innerHTML = Math.round(celTemp)
-    celLink.classList.add('active');
-    farLink.classList.remove('active');
-}
-
-//celcius farenheight toggle
-let farLink = document.querySelector('#far');
-farLink.addEventListener('click', convertToFar);
-
-let celLink = document.querySelector('#cel');
-celLink.addEventListener('click', convertToCel)
-
 
 //forecast loop & HTML integration
 function displayForecast(response) { 
