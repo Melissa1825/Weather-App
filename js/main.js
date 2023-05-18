@@ -61,7 +61,7 @@ function formatDate(timestamp){
         min = `0${min}`
     }
     
-    return `${weekday}, ${month} ${day} ${hours}:${min}`
+    return `${weekday}, ${month} ${day}, ${hours}:${min}`
 }
 
 
@@ -81,7 +81,7 @@ function displayForecast(response) {
                 <div class="col-2">
                         <p>${formatDailyDate(forecastDay.time)}</p>
                         <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png" alt="dailyIcon">
-                        <div>${Math.round(forecastDay.temperature.maximum)}° / ${Math.round(forecastDay.temperature.minimum)}°</div>
+                        <div class="highLow">${Math.round(forecastDay.temperature.maximum)}° / ${Math.round(forecastDay.temperature.minimum)}°</div>
                 </div>  
         `;
     }
